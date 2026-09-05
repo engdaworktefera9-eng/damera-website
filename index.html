@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Damera Community Initiative Ltd — Kampala, Uganda</title>
+  <meta name="description" content="Damera Community Initiative Ltd is a new Kampala-based nonprofit bringing refugees, host communities, women, youth and children together through radio, mental health support, education and dialogue.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Merriweather', 'serif'],
+          },
+          colors: {
+            damera: {
+              blue: '#0a4c6a',
+              dark: '#103145',
+              flame: '#d97706',
+              sand: '#fff7ed',
+              teal: '#1d7a9c',
+              warm: '#f5f0e8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .reveal { opacity: 0; transform: translateY(18px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(16,49,69,0.9) 0%, rgba(10,76,106,0.78) 50%, rgba(16,49,69,0.7) 100%);
+    }
+    
+    @media (max-width: 640px) {
+      .hero-headline { font-size: 2.1rem; line-height: 1.15; }
+    }
+    
+    .pattern-warm {
+      background-image: radial-gradient(#d97706 0.5px, transparent 0.5px), radial-gradient(#d97706 0.5px, #fff7ed 0.5px);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+      opacity: 0.1;
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-white">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <img src="images/logo.png" alt="Damera Community Initiative Logo" class="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+          <div class="hidden sm:block leading-tight">
+            <span class="block text-damera-blue font-serif font-bold text-lg">Damera Community</span>
+            <span class="block text-xs text-damera-flame font-medium tracking-wide">Initiative Ltd</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#about" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">About</a>
+          <a href="#programs" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Programs</a>
+          <a href="#journey" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Our Journey</a>
+          <a href="#updates" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Updates</a>
+          <a href="#network" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Network</a>
+          <a href="#get-involved" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Get Involved</a>
+          <a href="#contact" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Contact</a>
+          <a href="#donate" class="inline-flex items-center gap-2 bg-damera-flame hover:bg-amber-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-md transition">
+            Donate
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-700 hover:bg-stone-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-stone-100">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#about" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">About</a>
+        <a href="#programs" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Programs</a>
+        <a href="#journey" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Our Journey</a>
+        <a href="#updates" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Updates</a>
+        <a href="#network" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Network</a>
+        <a href="#get-involved" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Get Involved</a>
+        <a href="#contact" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Contact</a>
+        <a href="#donate" class="block w-full text-center bg-damera-flame text-white py-3 rounded-lg font-semibold">Donate</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden pt-20">
+    <div class="absolute inset-0 z-0">
+      <img src="images/hero-consultation.jpg" alt="Community consultation gathering in Kampala" class="w-full h-full object-cover">
+      <div class="absolute inset-0 hero-overlay"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white reveal">
+      <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
+        <span class="w-2 h-2 bg-damera-flame rounded-full animate-pulse"></span>
+        <span class="text-xs sm:text-sm font-medium tracking-wide">New grassroots nonprofit · Kampala, Uganda</span>
+      </div>
+      
+      <h1 class="hero-headline font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+        Bringing People Together to Share <span class="text-amber-300">Knowledge</span>, <span class="text-amber-300">Hope</span> & <span class="text-amber-300">Opportunity</span>
+      </h1>
+      
+      <p class="text-lg sm:text-xl text-stone-100 max-w-3xl mx-auto mb-10 leading-relaxed">
+        We are a young community-led organization in Kampala working alongside refugees and host communities to build a shared future through radio, mental health support, education, and dialogue.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#programs" class="w-full sm:w-auto px-8 py-4 bg-damera-flame hover:bg-amber-700 text-white rounded-full font-semibold shadow-lg transition transform hover:-translate-y-0.5">
+          Explore Our Work
+        </a>
+        <a href="#donate" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-full font-semibold backdrop-blur-sm transition">
+          Donate to Damera
+        </a>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden sm:block">
+      <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="bg-damera-dark text-white py-8 border-b-4 border-damera-flame">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+        <div class="reveal">
+          <p class="text-3xl font-serif font-bold text-amber-300">New</p>
+          <p class="text-sm text-stone-300 mt-1">Volunteer-led initiative</p>
+        </div>
+        <div class="reveal">
+          <p class="text-3xl font-serif font-bold text-amber-300">Kampala</p>
+          <p class="text-sm text-stone-300 mt-1">Based in Uganda</p>
+        </div>
+        <div class="reveal">
+          <p class="text-3xl font-serif font-bold text-amber-300">Community</p>
+          <p class="text-sm text-stone-300 mt-1">Listening first, acting together</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="relative py-20 lg:py-28 bg-damera-sand overflow-hidden">
+    <div class="absolute inset-0 pattern-warm"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="reveal">
+          <span class="text-damera-flame font-semibold text-sm tracking-wider uppercase">About Us</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mt-3 mb-6">We Started With a Simple Question</h2>
+          <div class="space-y-4 text-gray-700 leading-relaxed text-base sm:text-lg">
+            <p>
+              In early 2026, a small group of community members in Kampala sat together and asked: <em>“How can we support each other better?”</em> That question became Damera Community Initiative Ltd.
+            </p>
+            <p>
+              We are new, volunteer-led, and guided by the belief that every person — regardless of nationality, gender, religion or background — deserves a chance to learn, heal, and lead.
+            </p>
+            <p>
+              Our work focuses on education, mental health, community media, youth empowerment, refugee integration, and peaceful coexistence between refugees and host communities.
+            </p>
+          </div>
+          
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#programs" class="inline-flex items-center gap-2 text-damera-blue font-semibold hover:gap-3 transition-all">
+              See our programs
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="relative reveal">
+          <div class="absolute -top-4 -left-4 w-24 h-24 bg-damera-flame/20 rounded-full blur-2xl"></div>
+          <img src="images/speaking-1.jpg" alt="Damera founder sharing a story at community consultation" class="relative rounded-2xl shadow-xl w-full h-[420px] object-cover">
+          <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg max-w-xs hidden sm:block">
+            <p class="text-sm font-medium text-damera-dark">“We are building Damera slowly, honestly, and together with the community.”</p>
+            <p class="text-xs text-gray-500 mt-2">— Damera founding team</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION & MISSION -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-stone-50 rounded-2xl p-8 lg:p-10 border border-stone-100 reveal">
+          <div class="w-12 h-12 bg-damera-blue/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-damera-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-damera-dark mb-3">Our Vision</h3>
+          <p class="text-gray-700 leading-relaxed">
+            A peaceful, informed, healthy and empowered society where every individual has equal opportunities to achieve their full potential.
+          </p>
+        </div>
+        
+        <div class="bg-damera-blue rounded-2xl p-8 lg:p-10 text-white reveal">
+          <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <h3 class="font-serif text-2xl font-bold mb-3">Our Mission</h3>
+          <p class="text-stone-100 leading-relaxed">
+            To empower communities through digital innovation, education, humanitarian action, mental health support, community journalism, advocacy and sustainable development initiatives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section class="py-20 bg-damera-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mb-4">Our Core Values</h2>
+        <p class="text-gray-700">These principles shape how we work, listen, and grow as a community.</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 mx-auto bg-damera-flame/10 rounded-full flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-damera-flame" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h4 class="font-semibold text-damera-dark">Integrity</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 mx-auto bg-damera-blue/10 rounded-full flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-damera-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+          </div>
+          <h4 class="font-semibold text-damera-dark">Accountability</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 mx-auto bg-damera-teal/10 rounded-full flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-damera-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          </div>
+          <h4 class="font-semibold text-damera-dark">Transparency</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 mx-auto bg-purple-100 rounded-full flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h4 class="font-semibold text-damera-dark">Inclusiveness</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 mx-auto bg-amber-100 rounded-full flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <h4 class="font-semibold text-damera-dark">Innovation</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 mx-auto bg-rose-100 rounded-full flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          </div>
+          <h4 class="font-semibold text-damera-dark">Compassion</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 mx-auto bg-emerald-100 rounded-full flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          </div>
+          <h4 class="font-semibold text-damera-dark">Professionalism</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 mx-auto bg-indigo-100 rounded-full flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </div>
+          <h4 class="font-semibold text-damera-dark">Respect</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 mx-auto bg-cyan-100 rounded-full flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h4 class="font-semibold text-damera-dark">Partnership</h4>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 mx-auto bg-lime-100 rounded-full flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-lime-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h4 class="font-semibold text-damera-dark">Community Power</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mb-4">What We Do</h2>
+        <p class="text-gray-700 text-lg">Our work is organised around three pillars that respond directly to what the community told us they need.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl border border-stone-200 p-8 shadow-sm hover:shadow-xl transition group reveal">
+          <div class="w-14 h-14 bg-damera-blue/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-damera-blue transition">
+            <svg class="w-7 h-7 text-damera-blue group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v4a3 3 0 01-3 3z"></path></svg>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-damera-dark mb-3">Information & Community Voice</h3>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            Through the <strong>Damera Radio Project</strong>, we expand access to reliable information via community radio, citizen journalism, podcasts and storytelling.
+          </p>
+          <span class="inline-block text-xs font-semibold text-damera-flame bg-amber-50 px-3 py-1 rounded-full">Damera Radio Project</span>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-8 shadow-sm hover:shadow-xl transition group reveal">
+          <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition">
+            <svg class="w-7 h-7 text-emerald-600 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-damera-dark mb-3">Health & Psychosocial Support</h3>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            We promote mental wellbeing through awareness campaigns, counselling referrals, psychosocial support, community education and open conversations.
+          </p>
+          <span class="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full">Mental Wellbeing</span>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-stone-200 p-8 shadow-sm hover:shadow-xl transition group reveal">
+          <div class="w-14 h-14 bg-damera-flame/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-damera-flame transition">
+            <svg class="w-7 h-7 text-damera-flame group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-damera-dark mb-3">Community Integration & Leadership</h3>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            We bring refugees, women, youth and host communities together through dialogue, cultural exchange, leadership training and peacebuilding.
+          </p>
+          <span class="inline-block text-xs font-semibold text-damera-blue bg-blue-50 px-3 py-1 rounded-full">Refugees · Women · Youth</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS GRID -->
+  <section id="projects" class="py-20 bg-stone-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 reveal">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mb-3">Our Projects</h2>
+        <p class="text-gray-600 max-w-2xl">Practical initiatives we are currently running or developing with community input.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition reveal">
+          <h4 class="font-serif font-bold text-damera-dark mb-2">Damera Radio Project</h4>
+          <p class="text-sm text-gray-600">Community broadcasting and digital storytelling platform.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition reveal">
+          <h4 class="font-serif font-bold text-damera-dark mb-2">Community Mental Health Initiative</h4>
+          <p class="text-sm text-gray-600">Mental health awareness, psychosocial support and referral networks.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition reveal">
+          <h4 class="font-serif font-bold text-damera-dark mb-2">Youth Leadership Program</h4>
+          <p class="text-sm text-gray-600">Leadership, entrepreneurship and life skills for young people.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition reveal">
+          <h4 class="font-serif font-bold text-damera-dark mb-2">Education Support Initiative</h4>
+          <p class="text-sm text-gray-600">School support, literacy, mentorship and learning materials.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition reveal">
+          <h4 class="font-serif font-bold text-damera-dark mb-2">Peace & Community Dialogue</h4>
+          <p class="text-sm text-gray-600">Building peaceful and inclusive communities through conversation.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition reveal">
+          <h4 class="font-serif font-bold text-damera-dark mb-2">Digital Innovation</h4>
+          <p class="text-sm text-gray-600">Using technology and digital platforms to improve education and communication.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR JOURNEY -->
+  <section id="journey" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 reveal">
+          <span class="text-damera-flame font-semibold text-sm tracking-wider uppercase">Our Journey</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mt-3 mb-6">Listening First: Our Foundation in Kampala</h2>
+          <p class="text-gray-700 text-lg leading-relaxed mb-6">
+            Damera was not built in an office — it was built in a conversation. On <strong>March 1, 2026</strong>, we held our first community consultation at <strong>Gion Hotel in Kampala</strong>.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Community members, youth, women, refugee leaders and local partners came together to share what they were struggling with and what they hoped to see change. We listened. That day became the foundation of our programs.
+          </p>
+          
+          <div class="grid sm:grid-cols-2 gap-4 mb-8">
+            <div class="bg-damera-sand rounded-xl p-5">
+              <p class="text-2xl font-bold text-damera-blue">1</p>
+              <p class="text-sm text-gray-700 font-medium">Community consultation held</p>
+            </div>
+            <div class="bg-damera-sand rounded-xl p-5">
+              <p class="text-2xl font-bold text-damera-blue">60+</p>
+              <p class="text-sm text-gray-700 font-medium">Community members engaged</p>
+            </div>
+          </div>
+          
+          <p class="text-sm text-gray-500 italic">We are just getting started, and every step is shaped by the people we serve.</p>
+        </div>
+        
+        <div class="order-1 lg:order-2 grid gap-4 reveal">
+          <img src="images/consultation-banner.jpg" alt="Community consultation banner at Gion Hotel Kampala" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+          <div class="grid grid-cols-2 gap-4">
+            <img src="images/consultation-audience.jpg" alt="Audience listening during community consultation" class="rounded-2xl shadow-lg w-full h-52 object-cover">
+            <img src="images/consultation-partners.jpg" alt="Community leaders discussing after the consultation" class="rounded-2xl shadow-lg w-full h-52 object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE SERVE -->
+  <section class="py-20 bg-damera-blue text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-4">Who We Serve</h2>
+        <p class="text-stone-200">Our work is for everyone who calls Kampala home, especially those whose voices are rarely heard first.</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="glass-card rounded-xl p-5 text-center hover:bg-white/15 transition reveal">
+          <svg class="w-8 h-8 mx-auto text-amber-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          <h4 class="font-semibold">Refugees</h4>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:bg-white/15 transition reveal">
+          <svg class="w-8 h-8 mx-auto text-amber-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          <h4 class="font-semibold">Host Communities</h4>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:bg-white/15 transition reveal">
+          <svg class="w-8 h-8 mx-auto text-amber-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <h4 class="font-semibold">Youth</h4>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:bg-white/15 transition reveal">
+          <svg class="w-8 h-8 mx-auto text-amber-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <h4 class="font-semibold">Women & Girls</h4>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:bg-white/15 transition reveal">
+          <svg class="w-8 h-8 mx-auto text-amber-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <h4 class="font-semibold">Children</h4>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:bg-white/15 transition reveal">
+          <svg class="w-8 h-8 mx-auto text-amber-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path></svg>
+          <h4 class="font-semibold">Persons with Disabilities</h4>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:bg-white/15 transition reveal">
+          <svg class="w-8 h-8 mx-auto text-amber-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <h4 class="font-semibold">Older Persons</h4>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:bg-white/15 transition reveal">
+          <svg class="w-8 h-8 mx-auto text-amber-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+          <h4 class="font-semibold">Community Leaders</h4>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:bg-white/15 transition reveal">
+          <svg class="w-8 h-8 mx-auto text-amber-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          <h4 class="font-semibold">Local Organizations</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="py-20 bg-damera-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mb-4">The Change We Work Toward</h2>
+        <p class="text-gray-700">We are still early in our journey, but every program is designed to create these outcomes.</p>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-damera-dark text-sm">Improved mental wellbeing</h4>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-damera-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-damera-dark text-sm">Better access to education</h4>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-damera-flame" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-damera-dark text-sm">Increased youth participation</h4>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-damera-dark text-sm">Stronger community cohesion</h4>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v4a3 3 0 01-3 3z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-damera-dark text-sm">Access to reliable information</h4>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-damera-dark text-sm">Digital inclusion</h4>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 bg-rose-100 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-damera-dark text-sm">Women's empowerment</h4>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition reveal">
+          <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-damera-dark text-sm">Refugee integration</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS & NETWORK -->
+  <section id="network" class="relative py-20 lg:py-28 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="images/partners-banner.jpg" alt="Partner organizations banner showing Damera among allied organizations" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-damera-dark/88"></div>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <span class="text-amber-300 font-semibold text-sm tracking-wider uppercase">Our Network</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-3 mb-6">We Do Not Work Alone</h2>
+          <p class="text-stone-200 text-lg leading-relaxed mb-6">
+            Damera is proud to stand alongside other community organizations, women-led groups, and development networks in Kampala and beyond. Collaboration is how we multiply impact.
+          </p>
+          <p class="text-stone-300 leading-relaxed">
+            We welcome new partnerships with NGOs, UN agencies, government institutions, universities, foundations, private-sector actors, and community organizations who share our values.
+          </p>
+        </div>
+        
+        <div class="space-y-4 reveal">
+          <div class="glass-card rounded-xl p-6 hover:bg-white/15 transition">
+            <h4 class="font-serif font-bold text-white mb-2">NGOs & Community Groups</h4>
+            <p class="text-stone-300 text-sm">Joint programming, outreach, and shared learning.</p>
+          </div>
+          <div class="glass-card rounded-xl p-6 hover:bg-white/15 transition">
+            <h4 class="font-serif font-bold text-white mb-2">UN Agencies & Government</h4>
+            <p class="text-stone-300 text-sm">Policy support, coordination and humanitarian response.</p>
+          </div>
+          <div class="glass-card rounded-xl p-6 hover:bg-white/15 transition">
+            <h4 class="font-serif font-bold text-white mb-2">Universities & Foundations</h4>
+            <p class="text-stone-300 text-sm">Research, funding, scholarships and capacity building.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED & VOLUNTEER -->
+  <section id="get-involved" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="reveal">
+          <span class="text-damera-flame font-semibold text-sm tracking-wider uppercase">Get Involved</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mt-3 mb-6">Join Us as a Volunteer</h2>
+          <p class="text-gray-700 text-lg leading-relaxed mb-6">
+            Damera is powered by people. We are looking for volunteers who want to learn, contribute, and grow with us. Because we are still building our systems, applications are handled directly by email.
+          </p>
+          
+          <div class="bg-damera-sand rounded-2xl p-6 border border-amber-100">
+            <h4 class="font-bold text-damera-dark mb-3 flex items-center gap-2">
+              <svg class="w-5 h-5 text-damera-flame" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              How it works
+            </h4>
+            <ul class="space-y-2 text-gray-700 text-sm">
+              <li>1. Fill in your name, email and area of interest.</li>
+              <li>2. Click "Send Expression of Interest".</li>
+              <li>3. An email draft will open for you to send to us directly.</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-xl border border-stone-100 p-8 reveal">
+          <form id="volunteer-form" class="space-y-5">
+            <div>
+              <label for="volunteer-name" class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
+              <input type="text" id="volunteer-name" required class="w-full rounded-lg border-gray-300 bg-stone-50 border px-4 py-3 focus:ring-2 focus:ring-damera-blue focus:border-damera-blue outline-none transition" placeholder="Your name">
+            </div>
+            <div>
+              <label for="volunteer-email" class="block text-sm font-semibold text-gray-700 mb-1">Email Address</label>
+              <input type="email" id="volunteer-email" required class="w-full rounded-lg border-gray-300 bg-stone-50 border px-4 py-3 focus:ring-2 focus:ring-damera-blue focus:border-damera-blue outline-none transition" placeholder="you@example.com">
+            </div>
+            <div>
+              <label for="volunteer-interest" class="block text-sm font-semibold text-gray-700 mb-1">Area of Interest</label>
+              <select id="volunteer-interest" required class="w-full rounded-lg border-gray-300 bg-stone-50 border px-4 py-3 focus:ring-2 focus:ring-damera-blue focus:border-damera-blue outline-none transition">
+                <option value="" disabled selected>Select an area</option>
+                <option value="Journalism">Journalism & Radio</option>
+                <option value="Community Outreach">Community Outreach</option>
+                <option value="Education">Education & Mentorship</option>
+                <option value="Mental Health">Mental Health Support</option>
+                <option value="Research">Research</option>
+                <option value="Communications">Communications</option>
+                <option value="Digital Media">Digital Media</option>
+                <option value="Events">Events & Logistics</option>
+              </select>
+            </div>
+            <div>
+              <label for="volunteer-message" class="block text-sm font-semibold text-gray-700 mb-1">Tell us a little about yourself (optional)</label>
+              <textarea id="volunteer-message" rows="3" class="w-full rounded-lg border-gray-300 bg-stone-50 border px-4 py-3 focus:ring-2 focus:ring-damera-blue focus:border-damera-blue outline-none transition" placeholder="Your background, skills, or motivation..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-damera-blue hover:bg-damera-dark text-white font-semibold py-4 rounded-lg transition flex items-center justify-center gap-2">
+              Send Expression of Interest
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </form>
+          
+          <div id="volunteer-success" class="hidden mt-6 bg-emerald-50 border border-emerald-200 rounded-lg p-5">
+            <h4 class="font-bold text-emerald-800 mb-2">Thank you for your interest!</h4>
+            <p class="text-emerald-700 text-sm mb-3">Please send your expression of interest directly to:</p>
+            <a href="mailto:info@dameracommunity.org" class="text-emerald-800 font-bold underline break-all">info@dameracommunity.org</a>
+            <p class="text-emerald-700 text-sm mt-3">Include your CV or a short introduction. We will get back to you within a few days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section id="donate" class="py-20 bg-gradient-to-br from-damera-blue to-damera-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-8 h-8 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-6">Support Our Mission</h2>
+      <p class="text-stone-200 text-lg mb-8 max-w-2xl mx-auto">
+        Every contribution helps us run community programs, support school materials, and expand mental health outreach. As a new organization, we are keeping donations simple and transparent.
+      </p>
+      
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 inline-block w-full sm:w-auto">
+        <p class="text-sm text-stone-300 uppercase tracking-wider font-semibold mb-3">Donate via Mobile Money</p>
+        <p class="text-3xl sm:text-4xl font-bold text-amber-300 mb-2">+256 709 070333</p>
+        <p class="text-sm text-stone-300 mb-6">MTN/Airtel Mobile Money accepted</p>
+        <a href="tel:+256709070333" class="inline-flex items-center gap-2 bg-damera-flame hover:bg-amber-700 text-white px-8 py-3 rounded-full font-semibold transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          Call to Give
+        </a>
+      </div>
+      
+      <p class="text-xs text-stone-400 mt-8 max-w-xl mx-auto">
+        Have questions about giving or want a receipt? Email us at <a href="mailto:info@dameracommunity.org" class="underline hover:text-white">info@dameracommunity.org</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- NEWS & STORIES -->
+  <section id="news" class="py-20 bg-damera-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row justify-between items-end mb-10 reveal">
+        <div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mb-3">News & Stories</h2>
+          <p class="text-gray-600">Updates from our community and upcoming events.</p>
+        </div>
+        <a href="https://www.instagram.com/dameracommunity/" target="_blank" rel="noopener" class="mt-4 sm:mt-0 text-damera-blue font-semibold hover:text-damera-dark transition flex items-center gap-2">
+          Follow on Instagram
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition reveal">
+          <img src="images/audience-seated.jpg" alt="Community members attending the first Damera consultation" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <span class="text-xs font-semibold text-damera-flame uppercase tracking-wide">March 1, 2026</span>
+            <h3 class="font-serif font-bold text-damera-dark mt-2 mb-3">Our First Community Consultation</h3>
+            <p class="text-sm text-gray-600">The meeting at Gion Hotel that shaped Damera's priorities for the year ahead.</p>
+          </div>
+        </article>
+        
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition reveal">
+          <img src="images/coffee-ceremony.jpg" alt="Traditional coffee ceremony at community gathering" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <span class="text-xs font-semibold text-damera-flame uppercase tracking-wide">Community</span>
+            <h3 class="font-serif font-bold text-damera-dark mt-2 mb-3">Culture, Coffee & Connection</h3>
+            <p class="text-sm text-gray-600">How small gatherings over coffee are helping refugees and host families build trust.</p>
+          </div>
+        </article>
+        
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition reveal">
+          <img src="images/speaking-2.jpg" alt="Community leader speaking at Damera event" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <span class="text-xs font-semibold text-damera-flame uppercase tracking-wide">Leadership</span>
+            <h3 class="font-serif font-bold text-damera-dark mt-2 mb-3">Women at the Front</h3>
+            <p class="text-sm text-gray-600">Highlighting the women helping lead Damera's outreach and dialogue work.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S NEW — live updates posted by the Damera team (powered by js/app.js) -->
+  <section id="updates" class="py-20 lg:py-28 bg-damera-warm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+        <span class="text-damera-flame font-semibold text-sm tracking-wider uppercase">Fresh from the field</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mt-3 mb-4">What's New at Damera</h2>
+        <p class="text-gray-600 text-lg">Photos, stories and announcements posted straight from the community — so this page is always up to date.</p>
+      </div>
+
+      <!-- Live updates feed (rendered by js/app.js) -->
+      <div id="updates-feed"></div>
+
+      <!-- Social media highlights -->
+      <div id="social-heading" class="text-center max-w-2xl mx-auto mt-20 mb-10 reveal">
+            <span class="text-damera-flame font-semibold text-sm tracking-wider uppercase">Social media</span>
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-damera-dark mt-3 mb-3">Follow the Journey Online</h3>
+        <p class="text-gray-600">Our latest Instagram and TikTok moments — also visible right here, even for visitors without a social media account.</p>
+      </div>
+      <div id="social-posts" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="https://www.instagram.com/dameracommunity/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-damera-blue hover:bg-damera-dark text-white px-6 py-3 rounded-full font-semibold shadow-md transition">
+          Follow @dameracommunity
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div class="reveal">
+          <span class="text-damera-flame font-semibold text-sm tracking-wider uppercase">Contact</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mt-3 mb-6">Let's Talk</h2>
+          <p class="text-gray-700 text-lg leading-relaxed mb-8">
+            Whether you want to volunteer, partner, donate, or just learn more about Damera, we would love to hear from you. We are a small team, so please allow us a few days to respond.
+          </p>
+          
+          <div class="space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-damera-sand rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-damera-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-damera-dark">Location</h4>
+                <p class="text-gray-600">Kampala, Uganda</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-damera-blue/10 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-damera-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-damera-dark">Primary Email</h4>
+                <a href="mailto:info@dameracommunity.org" class="text-damera-blue font-semibold hover:text-damera-dark transition break-all text-lg">info@dameracommunity.org</a>
+                <p class="text-xs text-gray-500 mt-1">Best for partnerships, media & general inquiries</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-700">Secondary Email</h4>
+                <a href="mailto:dameracommunity800@gmail.com" class="text-gray-600 hover:text-damera-blue transition break-all">dameracommunity800@gmail.com</a>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-damera-sand rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-damera-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-damera-dark">Phone / Mobile Money</h4>
+                <a href="tel:+256709070333" class="text-gray-600 hover:text-damera-blue transition">+256 709 070333</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-damera-sand rounded-2xl p-1 reveal">
+          <div class="bg-white rounded-xl p-6 h-full flex items-center justify-center">
+            <img src="images/consultation-wide.jpg" alt="Wide view of the Damera community consultation gathering" class="rounded-lg w-full h-full object-cover min-h-[300px]">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-damera-dark text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <a href="#home" class="flex items-center gap-3 mb-5">
+            <img src="images/logo.png" alt="Damera Community Initiative Logo" class="h-14 w-auto">
+            <div>
+              <span class="block font-serif font-bold text-lg">Damera Community</span>
+              <span class="block text-xs text-damera-flame">Initiative Ltd</span>
+            </div>
+          </a>
+          <p class="text-stone-300 text-sm max-w-md leading-relaxed">
+            Bringing people together to share knowledge, hope and opportunity. A new nonprofit starting its journey in Kampala, Uganda.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm text-stone-300">
+            <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+            <li><a href="#programs" class="hover:text-white transition">Our Programs</a></li>
+            <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
+            <li><a href="#network" class="hover:text-white transition">Network</a></li>
+            <li><a href="#news" class="hover:text-white transition">News</a></li>
+            <li><a href="#get-involved" class="hover:text-white transition">Volunteer</a></li>
+            <li><a href="#donate" class="hover:text-white transition">Donate</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4">Connect</h4>
+          <div class="flex gap-4 mb-6">
+            <a href="https://www.instagram.com/dameracommunity/" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-damera-flame transition" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.37-.039-.74-.018-1.112 1.628.02 3.258-.02 4.887.06 1.396.061 2.836-.21 3.98-1.021 1.17-.823 1.922-2.182 2.11-3.551.158-1.037.096-2.089.108-3.133.011-1.021-.002-2.041.006-3.061z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@dameracommunity" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-damera-flame transition" aria-label="TikTok">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.37-.039-.74-.018-1.112 1.628.02 3.258-.02 4.887.06 1.396.061 2.836-.21 3.98-1.021 1.17-.823 1.922-2.182 2.11-3.551.158-1.037.096-2.089.108-3.133.011-1.021-.002-2.041.006-3.061z"/></svg>
+            </a>
+          </div>
+          <p class="text-sm text-stone-300">Email: <a href="mailto:info@dameracommunity.org" class="hover:text-white transition">info@dameracommunity.org</a></p>
+          <p class="text-xs text-stone-500 mt-1">Also: <a href="mailto:dameracommunity800@gmail.com" class="hover:text-white transition">dameracommunity800@gmail.com</a></p>
+          <p class="text-sm text-stone-400 mt-3">Phone: <a href="tel:+256709070333" class="hover:text-white transition">+256 709 070333</a></p>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-stone-400 text-center md:text-left">&copy; 2026 Damera Community Initiative Ltd. All Rights Reserved.</p>
+        <p class="text-xs text-stone-500">A new nonprofit starting its journey in Kampala, Uganda.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Mobile Menu Toggle
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+    
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+      });
+    });
+    
+    // Volunteer Form Handler (no backend)
+    const form = document.getElementById('volunteer-form');
+    const successMsg = document.getElementById('volunteer-success');
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('volunteer-name').value;
+      const email = document.getElementById('volunteer-email').value;
+      const interest = document.getElementById('volunteer-interest').value;
+      const message = document.getElementById('volunteer-message').value;
+      
+      const subject = `Volunteer Interest: ${interest} - ${name}`;
+      const body = `Hello Damera Team,%0D%0A%0D%0AMy name is ${name} and I am interested in volunteering as a ${interest}.%0D%0A%0D%AEEmail: ${email}%0D%0A%0D%AAbout me: ${message || 'Not provided'}%0D%0A%0D%ABest regards,`;
+      
+      window.location.href = `mailto:info@dameracommunity.org?subject=${encodeURIComponent(subject)}&body=${body}`;
+      
+      successMsg.classList.remove('hidden');
+      form.reset();
+    });
+    
+    // Scroll Reveal Animation
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    reveals.forEach(reveal => observer.observe(reveal));
+  </script>
+
+  <!-- Live updates + admin logic (loads after the page so posts render dynamically) -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
