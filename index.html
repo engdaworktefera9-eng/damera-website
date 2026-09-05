@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -915,7 +915,7 @@
       const message = document.getElementById('volunteer-message').value;
       
       const subject = `Volunteer Interest: ${interest} - ${name}`;
-      const body = `Hello Damera Team,%0D%0A%0D%0AMy name is ${name} and I am interested in volunteering as a ${interest}.%0D%0A%0D%AEEmail: ${email}%0D%0A%0D%AAbout me: ${message || 'Not provided'}%0D%0A%0D%ABest regards,`;
+      const body = `Hello Damera Team,%0D%0A%0D%0AMy name is ${name} and I am interested in volunteering as a ${interest}.%0D%0A%0D%0AEmail: ${email}%0D%0A%0D%0AAbout me: ${message || 'Not provided'}%0D%0A%0D%0ABest regards,`;
       
       window.location.href = `mailto:info@dameracommunity.org?subject=${encodeURIComponent(subject)}&body=${body}`;
       
