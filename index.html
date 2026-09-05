@@ -83,6 +83,7 @@
           <a href="#about" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">About</a>
           <a href="#programs" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Programs</a>
           <a href="#journey" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Our Journey</a>
+          <a href="#updates" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Updates</a>
           <a href="#network" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Network</a>
           <a href="#get-involved" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Get Involved</a>
           <a href="#contact" class="text-sm font-medium text-gray-700 hover:text-damera-blue transition">Contact</a>
@@ -106,6 +107,7 @@
         <a href="#about" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">About</a>
         <a href="#programs" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Programs</a>
         <a href="#journey" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Our Journey</a>
+        <a href="#updates" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Updates</a>
         <a href="#network" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Network</a>
         <a href="#get-involved" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Get Involved</a>
         <a href="#contact" class="block py-2 text-base font-medium text-gray-700 hover:text-damera-blue">Contact</a>
@@ -738,6 +740,35 @@
     </div>
   </section>
 
+  <!-- WHAT'S NEW — live updates posted by the Damera team (powered by js/app.js) -->
+  <section id="updates" class="py-20 lg:py-28 bg-damera-warm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+        <span class="text-damera-flame font-semibold text-sm tracking-wider uppercase">Fresh from the field</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-damera-dark mt-3 mb-4">What's New at Damera</h2>
+        <p class="text-gray-600 text-lg">Photos, stories and announcements posted straight from the community — so this page is always up to date.</p>
+      </div>
+
+      <!-- Live updates feed (rendered by js/app.js) -->
+      <div id="updates-feed"></div>
+
+      <!-- Social media highlights -->
+      <div id="social-heading" class="text-center max-w-2xl mx-auto mt-20 mb-10 reveal">
+            <span class="text-damera-flame font-semibold text-sm tracking-wider uppercase">Social media</span>
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-damera-dark mt-3 mb-3">Follow the Journey Online</h3>
+        <p class="text-gray-600">Our latest Instagram and TikTok moments — also visible right here, even for visitors without a social media account.</p>
+      </div>
+      <div id="social-posts" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="https://www.instagram.com/dameracommunity/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-damera-blue hover:bg-damera-dark text-white px-6 py-3 rounded-full font-semibold shadow-md transition">
+          Follow @dameracommunity
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -904,5 +935,9 @@
     
     reveals.forEach(reveal => observer.observe(reveal));
   </script>
+
+  <!-- Live updates + admin logic (loads after the page so posts render dynamically) -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
