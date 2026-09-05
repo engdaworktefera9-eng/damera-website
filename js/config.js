@@ -17,6 +17,6 @@
    ============================================================ */
 
 window.DAMERA_CONFIG = {
-  supabaseUrl: '',      // example: 'https://abcdefghijk.supabase.co'
-  supabaseAnonKey: ''   // example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6...'
+  supabaseUrl: '',  https://ehzjzfogzebqlmhtqned.supabase.co '
+  supabaseAnonKey: ''  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVoemp6Zm9nemVicWxtaHRxbmVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg1NjE4NTcsImV4cCI6MjEwNDEzNzg1N30.yxLIRl_QQphI8WRvFUdj54Cr-x5MNIM6HPguhwmz1Wg'
 };
